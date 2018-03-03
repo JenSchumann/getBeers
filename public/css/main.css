@@ -1,4 +1,13 @@
 * {
-  border: 1px solid hotpink;
-  background-color: #ecd0ac;
+  /* border: 1px solid hotpink;
+  background-color: #ecd0ac; */
+}
+
+body {
+  text-align: center;
+  margin: 0 auto;
+}
+
+li {
+  list-style: none;
 }

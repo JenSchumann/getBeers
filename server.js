@@ -26,12 +26,12 @@ const beer = require('./controllers/beer.js');
 //mongoose connection
 mongoose.connect('mongodb://localhost:27017/getBeers');
 mongoose.connection.once('open', function(){
-  console.log('belly up to the bar!');
+  console.log('what do you have on draft?');
 });
 
 
 
 //port
 app.listen(3000, function(){
-  console.log("I'll take a Kilt Lifter please. A tall one.  Because it's happy hour.");
+  console.log("I'll take a Kilt Lifter please.");
 });

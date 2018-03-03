@@ -18,8 +18,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
-  <body ng-controller="BeerController as ctrl">
-<!-- {{ctrl.happyHour}} -->
+
+
 
 
 <!-- BreweryDB API response. -->
@@ -27,15 +27,15 @@
 <div ng-controller="BeerDBController as beerCtrl">
       <header>
         <h1>getBeer</h1>
+        <!-- {{beerCtrl.happyHour}} -->
         <h3>Search for info about beer by name:</h3>
-        <nav>
-          <ul>
-            <li ng-click="main.openHomePage()">home</li>
+        <form ng-submit="beerCtrl.findBeer()">
+            <input type="text" ng-model="beerCtrl.searchForBeer" placeholder="Beer name"> 
 
-            <li ng-click="beerCtrl.beers = [];main.openBeerSearch()">beers</li>
+            <input ng-click="" type="submit" name="search" value="Find Beer">
 
-          </ul>
-        </nav>
+         </form>
+
       </header>
     </div>
 

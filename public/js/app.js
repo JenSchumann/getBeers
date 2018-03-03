@@ -16,6 +16,8 @@ app.controller('BeerDBController', ['$http', function($http){
   this.selectedBeer = "";
   this.searchForBeer = "";
 
+
+
 //=============================
   // Takes the results of a search and puts the data into objects that match
    // the mongo model. Adds the beers to the beer list.
@@ -46,7 +48,8 @@ app.controller('BeerDBController', ['$http', function($http){
 
    // Gets beer by name from brewerydb. Gets brewery that makes the beer.
    this.getBeerByName = function() {
-     var urlStr = '/breweries/proxy/v2/beers?name=' + controller.searchForBeer;
+
+     const urlStr = '/breweries/proxy/v2/beers?name=' + controller.searchForBeer;
 
      $http({
        method: 'GET',
