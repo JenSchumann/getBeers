@@ -1,0 +1,28 @@
+{
+  "name": "getbeers",
+  "version": "1.0.0",
+  "description": "#### **About:** This is just a repo to practice integrating BreweryDB api into a web application.. since I'm a newbie dev wanting to build her skills while having a beer now and then.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JenSchumann/getBeers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JenSchumann/getBeers/issues"
+  },
+  "homepage": "https://github.com/JenSchumann/getBeers#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "express-http-proxy": "^1.1.0",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.0.7"
+  }
+}
