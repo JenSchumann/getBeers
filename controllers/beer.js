@@ -1,9 +1,11 @@
+const proxy = require('express-http-proxy');
 const apiKey = process.env.API_KEY;
 const request = require('request');
-const proxy = require('express-http-proxy');
+
 const express = require('express');
 const router = express.Router();
 const Beer = require('../models/beer.js'); // employee schema
+const getBreweryDBResponse = require('../bin/breweryDB.js');
 
 // 3rd party apis need to be accessed through a proxy
 // if this is deleted requests to brewerydb will fail
@@ -15,11 +17,11 @@ router.use('/proxy', proxy('api.brewerydb.com' ,{
   }
 }));
 
-// router.use('/proxy', proxy('api.brewerydb.com', {
-//   filter: function(req, res) {
-//      return req.method == 'GET';
-//   }
-// }));
+router.use('/proxy', proxy('api.brewerydb.com', {
+  filter: function(req, res) {
+     return req.method == 'GET';
+  }
+}));
 
 //beers index page : for testing purpose
 router.get('/', function(req, res){
@@ -27,7 +29,12 @@ router.get('/', function(req, res){
 });
 
 
+// BreweryDB Response route ========================
 
+router.post('/getBreweryDBResponse', (req, res) => {
+  console.log('req.body: ', req.body);
+  getBreweryDBResponse(res, req.body, req.body);
+});
 
 
 module.exports  = router;

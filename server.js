@@ -2,10 +2,11 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const env = require('dotenv').config();
+// const env = require('dotenv').config();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-
+const proxy = require('express-http-proxy');
+require('dotenv').config();
 
 //middleware
 app.use(methodOverride('_method'));
