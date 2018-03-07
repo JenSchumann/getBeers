@@ -1,30 +1,20 @@
 const proxy = require('express-http-proxy');
 const apiKey = process.env.API_KEY;
-// const client = breweryDB.client(apiKey);
+const request = require('request');
 
-let getBreweryDBResponse = (res, beer, body) => {
+const getBreweryDBResponse = (res, beer) => {
 
-  let breweryDBResponse = [];
+  const responseToClient = (res, data) => {
+    res.send(data)
+  }
 
-  client.search({
-    beers: body.beers
-  }).then(response =>
-    // {
-    // for(let i = 0; i < (response.jsonBody.beers).length; i++) {
-    //   breweryDBResponse.push (
-    //     name: response.jsonBody.beers[i].name,
-    //     description: response.jsonBody.beers[i].description,
-    //     style: response.jsonBody.beers[i].style,
-    //     abv: response.jsonBody.beers[i].abv,
-    //     ibu: response.jsonBody.beers[i].ibu,
-    //     brewery: response.jsonBody.beers[i].brewery
-    //   )
-    // }
-    console.log(breweryDBResponse));
-        res.send(breweryDBResponse);
-          // }.catch(e => {
-          //   console.log(e);
-          // });
-}
+    request("http://api.brewerydb.com/v2/?key=" + apiKey + beer, function(error, response, body) {
+
+      const parsedBody = JSON.parse(body)
+      responseToClient(res, body)
+      console.log(parsedBody.description, parsedBody.name);
+      console.log(parsedBody);
+    });
+  }
 
 module.exports = getBreweryDBResponse;

@@ -20,7 +20,7 @@ const beer = require('./controllers/beer.js');
 
 
 // Fixes mongoose promise deprecation warning
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
 
 
