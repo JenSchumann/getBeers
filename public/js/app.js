@@ -28,15 +28,16 @@ app.controller('BeerDBController', ['$http', function($http){
     }).then(
       function(response){
         console.log('the button is working');
-        // for(let i = 0; i < (response.data).length; i++){
-        //   name: response.data[i].name,
-        //   description: response.data[i].description,
-        //   style: response.data[i].style.shortName,
-        //   abv: response.data[i].abv,
-        //   ibu: response.data[i].ibu,
-        // }
+        for(let i = 0; i < (response.data).length; i++){
+          response.data[i].name,
+          response.data[i].description,
+          response.data[i].style.shortName,
+          response.data[i].abv,
+          response.data[i].ibu
+        }
 
-        controller.breweryDBBeer = response.data;
+        controller.breweryDBBeers = response.data;
+
 
         controller.breweryDBBeerName = '';
       },
@@ -62,8 +63,4 @@ app.controller('BeerDBController', ['$http', function($http){
     )
   }
   this.getBeer();
-
-
-
-
 }]); //end of BeerController

@@ -33,11 +33,24 @@
             <input type="text" ng-model="beerCtrl.breweryDBBeerName" placeholder="Beer name">
 
             <input ng-click="" type="submit" name="search" value="Find Beer">
-
          </form>
 
       </header>
-    
+
+      <div>
+        <ul>
+          <li ng-repeat="breweryDBBeer in beerCtrl.breweryDBBeers track by $index">
+              <h5>{{breweryDBBeer.name}}</h5><br>
+              <h6>{{breweryDBBeer.description}}</h6><br>
+              <!-- <h6>{{breweryDBBeer.style.shortName}}</h6><br> -->
+              <h6>{{breweryDBBeer.style}}</h6><br>
+              <h6>{{breweryDBBeer.abv}}</h6><br>
+              <h6>{{breweryDBBeer.ibu}}</h6><br>
+          </li>
+        </ul>
+
+      </div>
+
     </div>
 
   </body>

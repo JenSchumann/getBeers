@@ -8,7 +8,9 @@ const getBreweryDBResponse = (res, beer) => {
     res.send(data)
   }
 
-    request("http://api.brewerydb.com/v2/?key=" + apiKey + beer, function(error, response, body) {
+// request("http://api.brewerydb.com/v2/?key=" + apiKey,
+    request("http://api.brewerydb.com/v2/?key=" + apiKey + beer,
+     function(error, response, body) {
 
       const parsedBody = JSON.parse(body)
       responseToClient(res, body)
