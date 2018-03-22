@@ -4,12 +4,14 @@ const request = require('request');
 
 const getBreweryDBResponse = (res, beer) => {
 
+  let breweryDBResponse = [];
+
   const responseToClient = (res, data) => {
     res.send(data)
   }
 
 // request("http://api.brewerydb.com/v2/?key=" + apiKey,
-    request("http://api.brewerydb.com/v2/?key=" + apiKey + beer,
+    request("http://api.brewerydb.com/v2/?key=" + apiKey + beers,
      function(error, response, body) {
 
       const parsedBody = JSON.parse(body)

@@ -30,10 +30,11 @@ router.get('/', function(req, res){
 
 
 // BreweryDB Response route ========================
-
-router.post('/getBreweryDBResponse/?key='+ apiKey, (req, res) => {
+router.post('/getBreweryDBResponse/?key='+ apiKey, (req, res) =>
+ {
   console.log('req.body: ', req.body);
-  getBreweryDBResponse(res, req.body, req.body);
+  // getBreweryDBResponse(res, req.body, req.body);
+
 });
 
 

@@ -4,8 +4,10 @@
 }
 
 body {
+  padding-top: 3%;
   text-align: center;
   margin: 0 auto;
+  background-color: #c0c067;
 }
 
 li {
