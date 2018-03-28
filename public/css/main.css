@@ -2,12 +2,15 @@
   /* border: 1px solid hotpink;
   background-color: #ecd0ac; */
 }
+.main-img {
+  z-index: -5;
+}
 
 body {
   padding-top: 3%;
   text-align: center;
   margin: 0 auto;
-  background-color: #c0c067;
+  /* background-color: #c0c067; */
 }
 
 li {
