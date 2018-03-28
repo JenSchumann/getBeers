@@ -4,7 +4,7 @@ const request = require('request');
 
 const express = require('express');
 const router = express.Router();
-const Beer = require('../models/beer.js'); // employee schema
+const Beer = require('../models/beer.js');
 const getBreweryDBResponse = require('../bin/breweryDB.js');
 
 // 3rd party apis need to be accessed through a proxy
@@ -33,7 +33,7 @@ router.get('/', function(req, res){
 router.post('/getBreweryDBResponse/?key='+ apiKey, (req, res) =>
  {
   console.log('req.body: ', req.body);
-  // getBreweryDBResponse(res, req.body, req.body);
+  getBreweryDBResponse(res, req.body, req.body);
 
 });
 

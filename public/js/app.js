@@ -48,10 +48,11 @@ app.controller('BeerDBController', ['$http', function($http){
   }
 
   this.getBeer =function(){
+    const urlStr = '/breweries/proxy/v2/beers?name='+controller.getBreweryDBResponse;
 
     $http({
       method: 'GET',
-      url: '/beer'
+      url: urlStr
     }).then(
       function(response){
         controller.beer=response.data
