@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <title>getBeer</title>
 
+    <!--Favicon -->
+     <link href="./assets/favicon.ico" rel="icon" type="image/png" >
+
     <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -22,7 +25,7 @@
 
 <body>
   <!-- Background Image -->
-<img class="main-img img-responsive" ng-if=!ctrl.loggedin src="./assets/snow-restaurant-mountains-sky.jpg"alt="Beer"/>
+<!-- <img class="main-img img-responsive" ng-if=!ctrl.loggedin src="./assets/snow-restaurant-mountains-sky.jpg"alt="Beer"/> -->
 
 <!-- BreweryDB API response. -->
 
@@ -41,13 +44,13 @@
 
       <div>
         <ul>
-          <li ng-repeat="breweryDBBeer in beerCtrl.breweryDBBeers track by $index">
-              <h5>{{breweryDBBeer.name}}</h5><br>
-              <h6>{{breweryDBBeer.description}}</h6><br>
+          <li ng-repeat="breweryDBesponse in beerCtrl.breweryDBesponses track by $index">
+              <h5>{{breweryDBResponse.name}}</h5><br>
+              <h6>{{breweryDBResponse.description}}</h6><br>
               <!-- <h6>{{breweryDBBeer.style.shortName}}</h6><br> -->
-              <h6>{{breweryDBBeer.style}}</h6><br>
-              <h6>{{breweryDBBeer.abv}}</h6><br>
-              <h6>{{breweryDBBeer.ibu}}</h6><br>
+              <h6>{{breweryDBResponse.style}}</h6><br>
+              <h6>{{breweryDBResponse.abv}}</h6><br>
+              <h6>{{breweryDBResponse.ibu}}</h6><br>
           </li>
         </ul>
 

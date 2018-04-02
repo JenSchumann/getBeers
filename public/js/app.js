@@ -36,8 +36,8 @@ app.controller('BeerDBController', ['$http', function($http){
           response.data[i].ibu
         }
 
-        controller.breweryDBBeers = response.data;
-
+        // controller.breweryDBBeers = response.data;
+        controller.breweryDBResponse = response.data;
 
         controller.breweryDBBeerName = '';
       },

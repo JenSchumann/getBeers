@@ -10,6 +10,7 @@ const getBreweryDBResponse = (res, beer) => {
     res.send(data)
   }
 
+//problem may be here...
 // request("http://api.brewerydb.com/v2/?key=" + apiKey,
     request("http://api.brewerydb.com/v2/?key=" + apiKey + beers,
      function(error, response, body) {
