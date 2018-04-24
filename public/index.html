@@ -13,48 +13,42 @@
     <link rel="stylesheet" href="./css/main.css">
 
     <!-- Bootstrap 4 Javascript -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
 
     <!-- Scripts -->
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
     <script src="/js/app.js" charset="utf-8"></script>
   </head>
 
 
 <body>
-  <!-- Background Image -->
-<!-- <img class="main-img img-responsive" ng-if=!ctrl.loggedin src="./assets/snow-restaurant-mountains-sky.jpg"alt="Beer"/> -->
+
 
 <!-- BreweryDB API response. -->
 
-<div ng-controller="BeerDBController as beerCtrl">
+
       <header>
+        <div ng-controller="BeerDBController as ctrl">
         <h1>getBeer</h1>
-        <!-- {{beerCtrl.happyHour}} -->
+
         <h3>Search for info about beer by name:</h3>
-        <form ng-submit="beerCtrl.getBreweryDBResponse()">
-            <input type="text" ng-model="beerCtrl.breweryDBBeerName" placeholder="Beer name">
+
+         <form ng-submit="ctrl.findBeer()">
+            <input type="text" ng-model="ctrl.searchForBeer" placeholder="Beer name"> or <br>
+
 
             <input ng-click="" type="submit" name="search" value="Find Beer">
+
+
          </form>
 
       </header>
 
-      <div>
-        <ul>
-          <li ng-repeat="breweryDBesponse in beerCtrl.breweryDBesponses track by $index">
-              <h5>{{breweryDBResponse.name}}</h5><br>
-              <h6>{{breweryDBResponse.description}}</h6><br>
-              <!-- <h6>{{breweryDBBeer.style.shortName}}</h6><br> -->
-              <h6>{{breweryDBResponse.style}}</h6><br>
-              <h6>{{breweryDBResponse.abv}}</h6><br>
-              <h6>{{breweryDBResponse.ibu}}</h6><br>
-          </li>
-        </ul>
-
-      </div>
+    
 
     </div>
 

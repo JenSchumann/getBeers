@@ -1,11 +1,12 @@
 var mongoose = require('mongoose')
 
 var beerSchema = mongoose.Schema({
-  name: {type: String, required: true, unique: true},
-  description: String
-})
+  name: String,
+  description: String,
+  style: String
+});
 
 
-var beer = mongoose.model('Beer', beerSchema);
+var Beer = mongoose.model('Beer', beerSchema);
 
-module.exports = beer;
+module.exports = Beer;

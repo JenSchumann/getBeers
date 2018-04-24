@@ -1,4 +1,4 @@
-console.log('amber, saison, stout, or porter?');
+// console.log('amber, saison, stout, or porter?');
 
 const app = angular.module('BeerApp', []);
 
@@ -10,58 +10,55 @@ const app = angular.module('BeerApp', []);
 
 app.controller('BeerDBController', ['$http', function($http){
   const controller = this;
-  this.happyHour = "I'm going to a Careers & Beers networking event tonight that's about transitioning into a tech career; I wonder what they'll have on tap..";
-
   this.beers = [];
-  this.selectedBeer = "";
   this.searchForBeer = "";
 
-  this.getBreweryDBResponse = function(){
-    $http({
-      method: 'POST',
-      url: '/beer/getBreweryDBResponse',
+  // Called when beer search form is submitted
+  this.findBeer = function() {
 
-      data: {
-        name: this.breweryDBBeerName,
+      this.getBeerByName();
 
-      }
-    }).then(
-      function(response){
-        console.log('the button is working');
-        for(let i = 0; i < (response.data).length; i++){
-          response.data[i].name,
-          response.data[i].description,
-          response.data[i].style.shortName,
-          response.data[i].abv,
-          response.data[i].ibu
-        }
-
-        // controller.breweryDBBeers = response.data;
-        controller.breweryDBResponse = response.data;
-
-        controller.breweryDBBeerName = '';
-      },
-      function(error){
-        console.log(error);
-      }
-    )
   }
 
-  this.getBeer =function(){
-    const urlStr = '/breweries/proxy/v2/beers?name='+controller.getBreweryDBResponse;
+    // Gets beer by name from brewerydb
+  this.getBeerByName = function() {
+    var urlStr = '/?beerId/proxy/v2/q=' + controller.searchForBeer;
 
     $http({
       method: 'GET',
-      url: urlStr
-    }).then(
-      function(response){
-        controller.beer=response.data
-
-      },
-      function(error){
-
+      url: urlStr,
+    }).then( function(response) {
+      controller.beers = response.data;
+      // console.log(response);
+      console.log(response);
+      // check if beer was found
+      if (response.data.hasOwnProperty('data')) {
+        controller.foundNoBeers = false;
       }
-    )
-  }
-  this.getBeer();
+      else {
+        controller.foundNoBeers = true;
+        return;
+      }
+     console.log(controller.beers);
+   }, function(response) {
+     console.log("getBeerByName error", response);
+     controller.beers = [];
+   }
+ )};
+
+ this.goToThisBeer = function(beerId,name){
+
+   var urlStr = '/?beerId/proxy/v2/q=' + controller.searchForBeer;
+
+   $http({
+     method: 'GET',
+     url: urlStr
+   }).then( function(response) {
+     controller.beers = [];
+     console.log(reponse);
+     console.log(controller.beers);
+
+  });
+ };
+
 }]); //end of BeerController
